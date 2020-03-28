@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,12 @@ export class AppComponent {
   public cont: any = 1499;
   public tempo: String = '0m 0s';
   public interruptor: Boolean = true;
-  constructor() {
+
+  constructor(private titleService: Title) {
     this.formatarTempo(this.cont);
+  }
+
+  ngOnInit() {
   }
 
   acrescentar() {
@@ -23,26 +28,38 @@ export class AppComponent {
   }
 
   comecar() {
-    if (this.interruptor) {
-      this.cont = 1500;
-      this.contar();
-      this.interruptor = false;
+    if (!this.interruptor) {
+      return "";
     }
+
+    console.log("contando");
+    this.cont = 1500;
+    this.interruptor = false;
+    this.contar();
+
   }
 
   contar() {
+    if (this.interruptor) {
+      return "";
+    }
+    if (this.cont == 11) {
+      this.playAudio();
+    }
     const delay = 1000;
     if (this.cont > 0) {
       this.diminuir();
       this.formatarTempo(this.cont);
+      this.formatarTitulo(`${this.tempo} - Temporizador Pomodoro`)
       setTimeout(() => this.contar(), delay);
     } else {
       this.interruptor = true;
     }
+
   }
 
   zerar() {
-    this.cont = 0;
+    this.cont = 1499;
     this.formatarTempo(this.cont);
     this.interruptor = true;
   }
@@ -53,19 +70,29 @@ export class AppComponent {
     while (s >= 60) {
       m += 1;
       s -= 60;
-    } 
+    }
     this.tempo = `${m}m ${s}s`;
 
   }
 
-  definirIntervalo() {;
+  formatarTitulo(novoTitulo: string) {
+    this.titleService.setTitle(novoTitulo);
+  }
+
+  definirIntervalo() {
+
     if (this.interruptor) {
       this.cont = 300;
-      this.contar();
       this.interruptor = false;
+      this.contar();
     }
   }
 
-  ngOnInit() {
+  playAudio() {
+    let audio = new Audio();
+    audio.src = "../assets/sound/beeps.mp3";
+    audio.load();
+    audio.play();
   }
+
 }
