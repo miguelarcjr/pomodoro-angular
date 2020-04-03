@@ -1,0 +1,33 @@
+.content {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.content {
+  background-color: #888;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  flex-direction: column;
+  padding-bottom: 20px;
+  }
+
+  .content h2 {
+    font-size: 4em;
+    color: #444;
+    margin: 10px 15%;
+    /* text-align: center; */
+  }
+.content h2:first-child {
+  margin-top: 40px;
+}
+
+.content p, .content li {
+  font-size: 2em;
+  color: #222;
+  margin: 10px 15%;
+  padding: 0;
+  line-height: 1.5em;
+  text-align: justify;
+}
