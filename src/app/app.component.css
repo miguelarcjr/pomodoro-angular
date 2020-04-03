@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
+
+.body {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.body {
+  height: 100vh;
+  background-color: #444;
+}
+
+.body,
+.input-login,
+.button-login {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.container-login {
+  margin: 40px auto 0;
+  max-width: 450px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-login {
+  width: 100%;
+  background: #fff;
+  margin-top: 25px;
+  border-radius: 4px;
+  padding: 30px;
+  position: relative;
+  animation-name: up;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+    width: 125px;
+}
+
+@keyframes up {
+  from {
+    top: 10%;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.content-login > p {
+  font-size: 22px;
+  line-height: 30px;
+  margin-bottom: 30px;
+  color: #444;
+}
+
+.content-login > .contador > p {
+    text-align: center;
+    font-size: 30px;
+    line-height: 30px;
+    margin-bottom: 30px;
+    color: #444;
+  }
+
+.content-login form {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-login form label {
+  font-size: 14px;
+  color: #444;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.content-login span {
+  font-weight: normal;
+  color: red;
+  font-size: 12px;
+}
+
+.content-login form input {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  height: 45px;
+  padding: 0 15px;
+  font-size: 16px;
+}
+.botoes {
+    display: flex;
+}
+button.btn {
+  border: 0;
+  margin-left: 10px;
+  border-radius: 2px;
+  width: 100%;
+  height: 42px;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #f05a5b;
+  color: #fff;
+  cursor: pointer;
+}
+
+.content-login button.btn:hover {
+  background: #e14f50;
+}
